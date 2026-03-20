@@ -59,6 +59,8 @@ public class AddMissingItemActivity extends AppCompatActivity {
             return;
         }
 
+        MissingItem item = new MissingItem(customerId, itemName, price);
+        if (!notes.isEmpty()) item.setNotes(notes);
 
         binding.btnSave.setEnabled(false);
         db.collection("customers").document(customerId)

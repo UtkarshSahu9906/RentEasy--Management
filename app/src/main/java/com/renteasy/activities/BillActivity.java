@@ -262,7 +262,12 @@ public class BillActivity extends AppCompatActivity {
                 com.renteasy.utils.BillingPolicy.getDailyPolicyLabel(this) + " | " +
                 com.renteasy.utils.BillingPolicy.getMonthlyPolicyLabel(this));
 
-
+        db.collection("customers").document(customerId)
+                .collection("bills").add(bill)
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Could not save to history: " + e.getMessage(),
+                                Toast.LENGTH_SHORT).show());
+    }
 
     @Override public boolean onSupportNavigateUp() { finish(); return true; }
 }
