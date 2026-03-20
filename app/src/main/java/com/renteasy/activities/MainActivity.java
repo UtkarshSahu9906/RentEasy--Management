@@ -7,11 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.*;
@@ -163,11 +166,16 @@ public class MainActivity extends AppCompatActivity {
     private void signOut() {
         mAuth.signOut();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN);
-        gsc.signOut().addOnCompleteListener(t -> goToLogin());
+        gsc.signOut().addOnCompleteListener(t -> goToLogin()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 
     private void goToLogin() {
-        startActivity(new Intent(this, LoginActivity.class));
+        () -> startActivity(new Intent(this, LoginActivity.class))
         finish();
     }
 }

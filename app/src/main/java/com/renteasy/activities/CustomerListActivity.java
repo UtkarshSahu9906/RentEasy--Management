@@ -88,11 +88,7 @@ public class CustomerListActivity extends AppCompatActivity {
         binding.tvCustomerCount.setText(count + (count == 1 ? " customer" : " customers"));
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (listener != null) listener.remove();
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() { finish(); return true; }
