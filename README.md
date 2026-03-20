@@ -8,7 +8,7 @@ A rental management Android app for small businesses — track customers, rental
 
 | Dashboard | Customers | Customer Detail | Generate Bill |
 |-----------|-----------|-----------------|---------------|
-| ![Dashboard](screenshots/ss_1.jpeg) | ![Customers](screenshots/ss_2.jpeg) | ![Detail](screenshots/ss_3.jpeg) | ![Bill](screenshots/ss_4.jpeg) |
+| ![Dashboard](https://raw.githubusercontent.com/UtkarshSahu9906/RentEasy--Management/master/screenshorts/ss_1.jpeg) | ![Customers](https://raw.githubusercontent.com/UtkarshSahu9906/RentEasy--Management/master/screenshorts/ss_2.jpeg) | ![Detail](https://raw.githubusercontent.com/UtkarshSahu9906/RentEasy--Management/master/screenshorts/ss_3.jpeg) | ![Bill](https://raw.githubusercontent.com/UtkarshSahu9906/RentEasy--Management/master/screenshorts/ss_4.jpeg) |
 
 ---
 
@@ -115,5 +115,6 @@ customers/{customerId}
 ---
 
 ## License
-© 2026 Utkarsh. All rights reserved.
+
+© 2026 Utkarsh Sahu. All rights reserved.
 This project is private and not open for redistribution.
