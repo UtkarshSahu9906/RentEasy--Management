@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:elevation="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#1A237E"
+            app:titleTextColor="@android:color/white"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ══ PAYMENT SUMMARY CARD ══ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Card header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="14dp"
+                        android:background="#1A237E">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Payment Summary"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnGenerateBill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Generate Bill"
+                            android:textSize="12sp"
+                            android:textColor="#1A237E"
+                            app:backgroundTint="@android:color/white"
+                            app:cornerRadius="6dp" />
+                    </LinearLayout>
+
+                    <!-- 3 summary boxes -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:orientation="vertical"
+                            android:background="#F0F4FF"
+                            android:padding="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Due"
+                                android:textSize="10sp"
+                                android:textColor="#5C6BC0" />
+                            <TextView
+                                android:id="@+id/tvSummaryDue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#1A237E" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:orientation="vertical"
+                            android:background="#F0FFF4"
+                            android:padding="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Advance"
+                                android:textSize="10sp"
+                                android:textColor="#2E7D32" />
+                            <TextView
+                                android:id="@+id/tvSummaryAdvance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#2E7D32" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="#FFF8E1"
+                            android:padding="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Security"
+                                android:textSize="10sp"
+                                android:textColor="#F57F17" />
+                            <TextView
+                                android:id="@+id/tvSummarySecurity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#E65100" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Net balance bar -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:background="#E8EAF6">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Net Balance Due"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#303F9F" />
+                        <TextView
+                            android:id="@+id/tvSummaryNet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.00"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#1A237E" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ RENTALS SECTION ══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="20dp"
+                    android:background="#1A237E"
+                    android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Borrowing List"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#1A237E" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddRental"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="+ Add Rental"
+                    android:textSize="11sp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:cornerRadius="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRentalTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#303F9F"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="12dp" />
+
+            <TextView
+                android:id="@+id/tvNoRentals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No rentals recorded yet."
+                android:textColor="#9E9E9E"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerRentals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ══ DAMAGE SECTION ══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="20dp"
+                    android:background="#B71C1C"
+                    android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Damage Records"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#B71C1C" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddDamage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="+ Add Damage"
+                    android:textSize="11sp"
+                    android:textColor="#B71C1C"
+                    app:strokeColor="#B71C1C"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:cornerRadius="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDamageTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#C62828"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="12dp" />
+
+            <TextView
+                android:id="@+id/tvNoDamages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No damage records."
+                android:textColor="#9E9E9E"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerDamages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ══ MISSING ITEMS SECTION ══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="20dp"
+                    android:background="#E65100"
+                    android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Missing Items"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#E65100" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddMissing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="+ Add Item"
+                    android:textSize="11sp"
+                    android:textColor="#E65100"
+                    app:strokeColor="#E65100"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:cornerRadius="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMissingTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#BF360C"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="12dp" />
+
+            <TextView
+                android:id="@+id/tvNoMissing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No missing items recorded."
+                android:textColor="#9E9E9E"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerMissing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginBottom="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

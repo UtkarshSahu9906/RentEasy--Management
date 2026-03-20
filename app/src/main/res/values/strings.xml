@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RentEasy</string>
+    <!--
+        IMPORTANT: Replace the value below with the Web Client ID from your
+        Firebase Console → Authentication → Sign-in method → Google → Web client ID.
+        This value is also found in google-services.json as client[0].oauth_client[type=3].client_id
+    -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID_HERE</string>
+</resources>
