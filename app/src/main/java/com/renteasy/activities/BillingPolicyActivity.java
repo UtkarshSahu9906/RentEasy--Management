@@ -81,15 +81,7 @@ public class BillingPolicyActivity extends AppCompatActivity {
             BillingPolicy.saveGraceHours(this, grace);
         }
 
-        // Monthly
-        int monthlyId = binding.rgMonthly.getCheckedRadioButtonId();
-        BillingPolicy.OveragePolicy monthlyPol = (monthlyId == binding.rbMonthlyRound.getId())
-                ? BillingPolicy.OveragePolicy.ROUND_UP_DAY
-                : BillingPolicy.OveragePolicy.EXACT_HOURS;
-        BillingPolicy.saveMonthlyPolicy(this, monthlyPol);
 
-        Toast.makeText(this, "Billing policy saved!", Toast.LENGTH_SHORT).show();
-        finish();
     }
 
     @Override public boolean onSupportNavigateUp() { finish(); return true; }
