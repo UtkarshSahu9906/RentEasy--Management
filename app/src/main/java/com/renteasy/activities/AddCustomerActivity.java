@@ -52,6 +52,9 @@ public class AddCustomerActivity extends AppCompatActivity {
             return;
         }
 
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Customer customer = new Customer(uid, name, email,
+                phone.isEmpty() ? null : phone);
 
         binding.btnSave.setEnabled(false);
         db.collection("customers").add(customer)
